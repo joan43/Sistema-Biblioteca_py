@@ -225,12 +225,10 @@ def sub_menu_1_opcion_bibliotecario():
     volver_al_menu_b()
 
 
-def sub_menu_2_opcion_bibliotecario(): #terminar correctamente, falta la parte de hacer bien el:
-    print("           agregando libro:      ")          #contenido_libro  como hacer que tenga funcionalidad
-    print(".......................................")        # agregar un archivo.txt correctamente
+def sub_menu_2_opcion_bibliotecario(): 
+    print("           agregando libro:      ")          
+    print(".......................................")       
 
-    # IMPORTANTE                     ### medio medio, falta estudiarlo un poco
-                                     ### ver bien si falta algo.....
     titulo_libro = input("ingrese el titulo: ").strip().lower()      
     autor_libro = input("ingrese el autor: ").strip().lower()         
     genero_libro = input("ingrese el genero: ").strip().lower()
@@ -257,7 +255,6 @@ def sub_menu_2_opcion_bibliotecario(): #terminar correctamente, falta la parte d
         return
     
 
-    # 000->>>>>>>>>>
     try:
         contenido_libro = filedialog.askopenfilename(
         title="Selecciona el archivo contenido de texto correspondiente: ", 
@@ -277,17 +274,6 @@ def sub_menu_2_opcion_bibliotecario(): #terminar correctamente, falta la parte d
         time.sleep(2)
         menu_bibliotecario()
         return
-    #else:                                  
-    #try:
-        # Supongo que la función 'agregar_libro' necesita un archivo que se abrirá
-        #with open(contenido_libro, "r", encoding="utf-8") as archivo:
-         #   contenido = archivo.read()  # Leemos el contenido del archivo
-        # Esto es solo para verificar que el archivo existe y es accesible
-        # Ahora llamamos al método para agregar el libro
-    
-        
-        # Guardamos solo el nombre en el diccionario
-    
     
     class_biblioteca.agregar_libro(titulo_libro, autor_libro, genero_libro, contenido_libro) #contenido
     log.add_to_log("info", f"El bibliotecario agregó el libro: '{titulo_libro}' con contenido del archivo: '{contenido_libro}'")
@@ -297,12 +283,6 @@ def sub_menu_2_opcion_bibliotecario(): #terminar correctamente, falta la parte d
     menu_bibliotecario()
     return
     
-    #except FileNotFoundError:
-       # print("Hubo un problema al abrir el archivo:")
-        #time.sleep(1.5)
-        #menu_bibliotecario()
-        #return
-    #
 
 def sub_menu_3_opcion_bibliotecario(): 
     print("     Eliminar libro:     ")         
@@ -343,14 +323,14 @@ def sub_menu_4_opcion_bibliotecario():
     volver_al_menu_b()
 
 
-def sub_menu_5_opcion_bibliotecario(): #terminar correctamente, solo hice la parte interfaz y un poco mas
-    print("     eliminando usuario:    ")       # y no realmente la funcionalidad...
+def sub_menu_5_opcion_bibliotecario(): 
+    print("     eliminando usuario:    ")    
     print("............................")   
     class_biblioteca.ver_usuarios()
     print("..................")
     print("ingrese el id del usuario a eliminar:")      
     print("_____")
-    id_usuario_elim = input("> ")          #no se usa la variable simplemente
+    id_usuario_elim = input("> ")          
     print("_____")
     if not class_usuarios.validar_id_usuario(id_usuario_elim):
         log.add_to_log("warning", "El bibliotecario intentó eliminar un usuario que no existe.")

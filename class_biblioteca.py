@@ -88,9 +88,6 @@ def agregar_libro(titulo, autor, genero, contenido):
     # crear objeto libro
     libro = class_libros.Libro(titulo, autor, genero, contenido)
 
-    # convertir a dict y agregar id
-   # libro_dict = libro.to_dict()
-    #libro_dict["id"] = nuevo_id   pero habia una mejor manera:
     nombre_archivo = os.path.basename(contenido)
     
     LIBRO = libro.to_dict() # esto es un diccionario sin el id
@@ -135,10 +132,9 @@ def ver_usuarios():
         print(f"\n{user}")
 
 
-######################################################################||||||||||||||||||||||||||||||||||
-######################################################################||||||||||||||||||||||||||||||||||
-#      FUNCION QUE NO SE USA LITERAL EN LA CLASE, SINO EN LO DEMAS    ||||||||||||||||||||||||||||||||||
-######################################################################||||||||||||||||||||||||||||||||||
+###############################################################################
+#      FUNCION QUE NO SE USA LITERAL EN LA CLASE, SINO EN LO DEMAS           ##
+###############################################################################
 #      agregar usuario :
 
 def cargar_usuarios():

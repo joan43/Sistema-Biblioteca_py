@@ -43,12 +43,9 @@ def leer(usuario, id_libro_tenido): #(usuario_valido, id_libro_tenido):
         if int(libro["id"]) == int(id_libro_tenido):
             ruta = libro["contenido"]
             try:
-                #os.startfile(ruta)
-                subprocess.run(f'start "" /MAX "{ruta}"', shell=True, check=True)  # Esto es para abrir el archivo en Windows
+                
+                subprocess.run(f'start "" /MAX "{ruta}"', shell=True, check=True)  
                   # Esto abrirá el archivo con la aplicación predeterminada en Windows
-               # with open(ruta, "r", encoding="utf-8") as archivo:
-                #    for linea in archivo:
-                 #       print(linea.strip())
             except FileNotFoundError:
                 print("El archivo no existe.")
             return
@@ -73,7 +70,7 @@ def pedir_prestado(usuario, id_libro):  #(usuario_valido, id_libro):
         if usu["id"] == id_usu:  
             usu["libros_tenidos"].append(libr_a)    
             break
-    # Dentro de pedir_prestado(), después de añadir el libro al JSON: X
+    
     usuario["libros_tenidos"].append(libr_a)
 
     class_biblioteca.guardar_libros(libros)
@@ -103,7 +100,7 @@ def devolver_libro(usuario, id_libro): #(usuario_valido, id_libro):
     class_biblioteca.guardar_libros(libros)
 
 ########################################################################################################
-#      FUNCIONES PARA LA INTERFAZ DE USUARIOS  X
+#      FUNCIONES PARA LA INTERFAZ DE USUARIOS 
  
 
 #def ver_libros_tenidos():
