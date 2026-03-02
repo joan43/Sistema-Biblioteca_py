@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "titulo": "Don_Quijote_de_la_Mancha",
+        "autor": "Miguel de Cervantes",
+        "genero": "Novela",
+        "contenido": "Don_Quijote_de_la_Mancha.txt",
+        "prestado": false
+    },
+    {
+        "id": 2,
+        "titulo": "La_Divina_Comedia",
+        "autor": "Dante Alighieri",
+        "genero": "Poesía épica",
+        "contenido": "La_Divina_Comedia.txt",
+        "prestado": false
+    },
+    {
+        "id": 3,
+        "titulo": "Orgullo_y_Prejucio",
+        "autor": "Jane Austen",
+        "genero": "Novela romántica",
+        "contenido": "Orgullo_y_Prejucio.txt",
+        "prestado": false
+    },
+    {
+        "id": 4,
+        "titulo": "Frankenstein",
+        "autor": "Mary Shelley",
+        "genero": "Terror",
+        "contenido": "Frankenstein.txt",
+        "prestado": false
+    },
+    {
+        "id": 5,
+        "titulo": "Dracula",
+        "autor": "Bram Stoker",
+        "genero": "Terror",
+        "contenido": "Dracula.txt",
+        "prestado": false
+    },
+    {
+        "id": 6,
+        "titulo": "La_Ilíada",
+        "autor": "Homero",
+        "genero": "Épica",
+        "contenido": "La_Ilíada.txt",
+        "prestado": false
+    },
+    {
+        "id": 7,
+        "titulo": "La_Odisea",
+        "autor": "Homero",
+        "genero": "Épica",
+        "contenido": "La_Odisea.txt",
+        "prestado": false
+    },
+    {
+        "id": 8,
+        "titulo": "Hamlet",
+        "autor": "William Shakespeare",
+        "genero": "Tragedia",
+        "contenido": "Hamlet.txt",
+        "prestado": false
+    },
+    {
+        "id": 9,
+        "titulo": "Romeo_y_Julieta",
+        "autor": "William Shakespeare",
+        "genero": "Tragedia",
+        "contenido": "Romeo_y_Julieta.txt",
+        "prestado": false
+    },
+    {
+        "id": 10,
+        "titulo": "El_Principito",
+        "autor": "Antoine de Saint-Exupéry",
+        "genero": "Fábula",
+        "contenido": "El_Principito.txt",
+        "prestado": false
+    },
+    {
+        "id": 11,
+        "titulo": "Moby_Dick",
+        "autor": "Herman Melville",
+        "genero": "Aventura",
+        "contenido": "Moby_Dick.txt",
+        "prestado": false
+    },
+    {
+        "id": 12,
+        "titulo": "Alicia_en_el_Pais_de_las_Maravillas",
+        "autor": "Lewis Carroll",
+        "genero": "Fantasía",
+        "contenido": "Alicia_en_el_Pais_de_las_Maravillas.txt",
+        "prestado": false
+    },
+    {
+        "id": 13,
+        "titulo": "Viaje_al_Centro_de_la_Tierra",
+        "autor": "Julio Verne",
+        "genero": "Ciencia ficción",
+        "contenido": "Viaje_al_Centro_de_la_Tierra.txt",
+        "prestado": false
+    },
+    {
+        "id": 14,
+        "titulo": "La_Isla_del_Tesoro",
+        "autor": "Robert Louis Stevenson",
+        "genero": "Aventura",
+        "contenido": "La_Isla_del_Tesoro.txt",
+        "prestado": false
+    },
+    {
+        "id": 15,
+        "titulo": "El_Conde_de_Montecristo",
+        "autor": "Alexandre Dumas",
+        "genero": "Aventura",
+        "contenido": "El_Conde_de_Montecristo.txt",
+        "prestado": false
+    },
+    {
+        "id": 16,
+        "titulo": "Los_Tres_Mosqueteros",
+        "autor": "Alexandre Dumas",
+        "genero": "Aventura",
+        "contenido": "Los_Tres_Mosqueteros.txt",
+        "prestado": false
+    },
+    {
+        "id": 17,
+        "titulo": "Fausto",
+        "autor": "Johann Wolfgang von Goethe",
+        "genero": "Drama",
+        "contenido": "Fausto.txt",
+        "prestado": false
+    },
+    {
+        "id": 18,
+        "titulo": "La_Metamorfosis",
+        "autor": "Franz Kafka",
+        "genero": "Ficción",
+        "contenido": "La_Metamorfosis.txt",
+        "prestado": false
+    },
+    {
+        "id": 19,
+        "titulo": "Las_Mil_y_Una_Noches",
+        "autor": "Anónimo",
+        "genero": "Cuentos",
+        "contenido": "Las_Mil_y_Una_Noches.txt",
+        "prestado": false
+    },
+    {
+        "id": 20,
+        "titulo": "El_Arte_de_la_Guerra",
+        "autor": "Sun Tzu",
+        "genero": "Estrategia",
+        "contenido": "El_Arte_de_la_Guerra.txt",
+        "prestado": true
+    }
+]

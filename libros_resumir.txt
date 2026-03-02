@@ -1,0 +1,48 @@
+##########################################################################################################
+promt: 
+
+haceme un resumen de 200 lineas completas de: #INSERTAR LIBRO...
+Un resumen narrativo continuo, sin análisis ni comentarios, Una versión abreviada fiel al texto original 
+, como si fuera el mismo texto, pero más corto, sin explicaciones adicionales.”
+
+libros: 
+
+"titulo": "Don_Quijote_de_la_Mancha", "autor": "Miguel de Cervantes"  +++++++
+
+"titulo": "La_Divina_Comedia", "autor": "Dante Alighieri"
+
+"titulo": "Orgullo_y_Prejucio", "autor": "Jane Austen"
+
+"titulo": "Frankenstein", "autor": "Mary Shelley"
+
+"titulo": "Dracula", "autor": "Bram Stoker" ++++++
+
+"titulo": "La_Ilíada", "autor": "Homero" ++++++
+
+"titulo": "La_Odisea", "autor": "Homero"
+
+"titulo": "Hamlet", "autor": "William Shakespeare" +++++
+
+"titulo": "Romeo_y_Julieta", "autor": "William Shakespeare"
+
+"titulo": "El_Principito", "autor": "Antoine de Saint-Exupéry"  ++++++
+
+"titulo": "Moby_Dick", "autor": "Herman Melville"
+
+"titulo": "Alicia_en_el_Pais_de_las_Maravillas", "autor": "Lewis Carroll" +++++
+
+"titulo": "Viaje_al_Centro_de_la_Tierra", "autor": "Julio Verne"
+
+"titulo": "La_Isla_del_Tesoro", "autor": "Robert Louis Stevenson"
+
+"titulo": "El_Conde_de_Montecristo", "autor": "Alexandre Dumas" +++++++
+
+"titulo": "Los_Tres_Mosqueteros", "autor": "Alexandre Dumas"
+
+"titulo": "Fausto", "autor": "Johann Wolfgang von Goethe" ++++++
+
+"titulo": "La_Metamorfosis", "autor": "Franz Kafka"
+
+"titulo": "Las_Mil_y_Una_Noches", "autor": "Anónimo"
+
+"titulo": "El_Arte_de_la_Guerra", "autor": "Sun Tzu" +++++

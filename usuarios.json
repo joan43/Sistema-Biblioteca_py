@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nombre": "sneijder",
+        "contraseña": "123contraseña",
+        "libros_tenidos": [
+            {
+                "id": 20,
+                "titulo": "El_Arte_de_la_Guerra",
+                "autor": "Sun Tzu",
+                "genero": "Estrategia",
+                "contenido": "El_Arte_de_la_Guerra.txt",
+                "prestado": true
+            }
+        ]
+    }
+]

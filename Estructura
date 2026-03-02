@@ -1,0 +1,275 @@
+                        MINI SISTEMA DE GESTION DE BIBLIOTECA
+
+Objetivo: Crear un sistema de gestión de biblioteca con una interfaz de texto, 
+utilizando clases para representar libros, usuarios y la biblioteca en sí. 
+El sistema permitirá a los usuarios registrarse, iniciar sesión, pedir prestados libros y devolverlos, 
+mientras que el bibliotecario podrá agregar y eliminar libros y usuarios.
+
+---------------------------------------------------------------------------------------------------------
+Cambios a realizar para mejorar el proyecto:
+
+1: modularidad    ~
+2: try-except     ~ 
+3: lectura de libros (abrir un archivo con el libro completo y en un formato bueno (pdf)) ~
+4: logs  ~   
+5: partes automatizadas 
+6: una BD correspondiente (en vez de usar archivos json, usar una base de datos real o SQLite)  
+
+##########################################################################################################
+????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+#  DOCUMENTACION DEL PROYECTO    
+
+     - explicacion de la interfaz 
+
+     - explicacion de funciones y metodos 
+
+    en proceso....  esta medio-bien   corregir por si acaso
+
+  anotaciones:
+       ....
+ 
+##########################################################################################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+______________________________________
+|crear un mini sistema de biblioteca:|
+--------------------------------------
+
+creare 3 clases: Libro, Usuario, Bilioteca.  desde diferentes archivos y relacionarlos entre todos. 
+creo un objeto Biblioteca simple: con name_biblioteca y contraseña.
+
+crear: interfaz_programa.py -> donde tendre la interfaz:
+
+preview: 
+=============================================
+Bienvendo a Bilioteca central
+=============================================
+Como Acceder? - Seleccione una opción (1 o 2 o 3):
+(1)registrarse 
+(2)usuario
+(3)biliotecario 
+(4)salir 
+-----
+> 
+-----
+.....
+--------------------------------------------------------------------------------------------------------
+
+(1)
+# para registrase:
+SE NECESITA que el usuario nuevo se cree una cuenta.... 
+
+para ello debera ingresar un nombre de usuario y contraseña... 
+usuario_nuevo = Usuario("nombre?", "contraseña?")
+
+ese objeto se debe convertir a diccionario, pero no solo {"nombre": "???", "contraseña": "???"}
+sino asi: {"id": ?, "nombre": "???", "contraseña": "???", "libros_tenidos": []} 
+
+el id se agregara automaticamente ( generar_id_usuario() )
+
+y ese diccionario se agregara a usuarios.json
+
+la lista vacia en libros_tenidos es para despues poner libros en el metodo **pedir_prestado()** que agregara un libro que podra leer el usuario (tambien **devolver_libro**, que quitara el libro de libros_tenidos)
+ejemplo: 
+libros_tenidos = [
+    {"id": 7, "titulo": "La_Odisea", "autor": "Homero", "genero": "Épica", "contenido": "La_Odisea.txt"}
+]
+
+y eso debera guardarse en el archivo: usuarios.json
+
+- solo eso, ahora todo sus funciones o cosas que hace son iguales que un usuario ya registrado. 
+-----------------------------------------------------------------------------------------------
+                hay 3 funciones que se usan para agregar un nuevo usuario a usuarios.json:
+
+cargar_usuarios() -> lee el archivo json y devuelve una lista de diccionarios (usuarios)
+
+generar_id_usuario() -> lee el archivo json, obtiene el ultimo id y le suma 1 para generar un nuevo id unico para el nuevo usuario
+
+guardar_usuario(usuario) -> recibe un diccionario de usuario y lo agrega a la lista de usuarios en usuarios.json
+
+agregar_usuario(nombre, contraseña) -> recibe el nombre y contraseña, genera un nuevo id, 
+crea un diccionario de usuario y lo guarda en usuarios.json usando las funciones anteriores.
+
+
+#########################################################################################################
+#########################################################################################################
+
+(2)
+# para iniciar sesion:
+SE NECESITAN el nombre de usuario y contraseña del usuario correspondientes. 
+
+se validara si el nombre de usuario y la contraseña existen en un solo diccionario
+
+si el nombre de usuario y la contraseña no existen. entonces habra un mensaje de que datos son incorrectos
+si el caso  de que nombre de usuario y la contraseña existen y son correctos. 
+"inicio de sesion exitoso"
+---------------
+class_usuarios: 
+---------------
+Que se podra hacer?:
+
+**leer(id)**: 
+donde aparecera todos los libros_tenidos y deberas escribir el id del libro que queres leer.
+Ejemplo:  quiero leer La_odisea  y tengo estos 2 libros:
+
+{"id": 6, "titulo": "La_Ilíada", "autor": "Homero", "genero": "Épica", "contenido": "La_Ilíada.txt"},   
+{"id": 7, "titulo": "La_Odisea", "autor": "Homero", "genero": "Épica", "contenido": "La_Odisea.txt"},
+
+se imprime  La_odisea.txt  si pongo 7 (si paso el argumento 7 a la funcion)
+
+**pedir_prestado(id)**:
+se le pide al biliotecario un libro (entre comillas)
+se imprime el id, titulo, autor, genero  de todos los libros no prestados de la biblioteca. 
+y el usuario escribe el id del libro que quiere pedir prestado.
+
+y se la agrega ese libro (que es un diccionario de ello) a la lista: libros_tenidos = []
+
+ahora ese libro lo puede leer()
+
+**devolver(id)**:
+donde aparecera todos los libros tenidos y deberas escribir el id del libro que queres devolver.
+Ejemplo:  quiero devolver La_Iliada  y tengo estos 2 libros:
+
+{"id": 6, "titulo": "La_Ilíada", "autor": "Homero", "genero": "Épica", "contenido": "La_Ilíada.txt"},   
+{"id": 7, "titulo": "La_Odisea", "autor": "Homero", "genero": "Épica", "contenido": "La_Odisea.txt"},
+
+se elimina La_odisea.txt de libros_tenidos  si pongo 6 (si paso el argumento 6 a la funcion)
+y ese libro se agrega a la lista de libros (de la biblioteca)  (libros no prestados)
+
+por lo que ahora si esta disponible para que otro usuario lo pida prestado  ( pedir_prestado(id) )
+
+funciones dentro de el archivo:
+
+validar_usuario()
+funcion que valida si un usuario esta dentro de el archivo json usuarios.json
+si el usuario no esta, sale un mensaje: "Usuario no encontrado. y se regresa a la interfaz principal."
+y si todo sale bien: se retorna el usuario (en formato diccionario) para que se pueda usar en las funciones de la class_usuarios
+
+
+#########################################################################################################
+#########################################################################################################
+
+(3)
+# para iniciar sesion como bibliotecario
+
+SE NECESITA:
+El nombre del biblotecario Y La contraseña
+(el name_biblioteca correspondiente  porque solo hay una persona a cargo, asi solo es necesario la
+contraseña)
+
+esos datos salen de la creacion del objeto Biblioteca:
+biblioteca = Biblioteca("Biblioteca Central", "biblioteca123")
+
+si el nombre y contraseña son incorrectos, sale un mensaje: "Contraseña incorrecta. Acceso denegado."
+si no lo son, ahora ya hay poder absoluto de la biblioteca:
+
+
+la biblioteca tendra una lista vacia llamada libros = []  (libros no prestados) 
+
+class_biblioteca
+que se puede hacer?:
+
+ver_libros():
+se imprimiran todos los libros no prestados... 
+
+agregar_libro(titulo, autor, genero, contenido):
+se pedira todos los datos necesarios para el libro, excepto el id. 
+el id se define automaticamente: generar_id_libro()
+
+al pedir el contenido, se abrira un dialogo para seleccionar el archivo de texto del libro (contenido)
+y se guardara el nombre del archivo (ejemplo: La_Odisea.txt) en el diccionario del libro.
+
+se crea un diccionario con todos los datos necesarios 
+y se lo agrega a la lista de libros    (libros no prestados)
+
+Para ello se necesitan estas funciones, que seran usadas para agregar un nuevo libro a libros.json:
+
+cargar_libros() -> lee el archivo json, devuelve una lista de diccionarios (libros)
+
+generar_id_libro() -> lee el archivo json, obtiene el ultimo id y le suma 1 para generar un nuevo id unico para el nuevo libro
+
+guardar_libro(libro) -> recibe un diccionario de libro y lo agrega a la lista
+
+agregar_libro(titulo, autor, genero, contenido) -> recibe los datos del libro, genera un nuevo id, 
+crea un diccionario de libro y lo guarda en libros.json usando las funciones anteriores.
+este misma funcion se menciona arriba, pero es la funcion principal para agregar un libro a libros.json
+
+eliminar_libro(id_libro):
+se muestra todos los libros (libros no pretados)
+y se pide que se pase un id (id_libro).
+"libro eliminado"
+se elimina el libro de libros.json
+
+elimina_usuario(id_usuario):
+se muestra todos los usuarios  de usuarios.json
+y se pide que se le pase un id (id_usuario)..... 
+"usuario eliminado"
+se eliminara el usuario  de usuarios.json
+
+**leer_usuarios()**
+se imprimiran todos los usuarios registrados en usuarios.json
+
+
+#########################################################################################################
+#########################################################################################################
+
+(4)
+# salir
+se sale del programa con un mensaje: "Gracias por usar la biblioteca. ¡Hasta luego!"
+
+
+
+########################################################################################################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+En la interfaz del programa: interfaz_programa.py
+hay funciones basicas que se usan para hacer menos tedioso el programa:
+
+volver_menu_principal() -> muestra el menu principal y pide una opcion al usuario
+volver_menu_usuario() -> muestra el menu de usuario y pide una opcion al usuario
+volver_menu_bibliotecario() -> muestra el menu de bibliotecario y pide una opcion
+
+detalles no muy importantes...
+
+########################################################################################################
+ORGANIZACION DE CLASES/archivos:
+
+class_biblioteca:       class_usuarios:      class_libros:       interfaz_programa:
+Biblioteca             Usuario              Libro                
+
+#todo en una misma carpeta:
+
+=========================
+= biblioteca_act_clases =
+=========================
+|
+|#-> class_biblioteca.py
+|#-> class_usuarios.py
+|#-> class_libros.py
+|#-> interfaz_programa.py
+|
+|
+|-> usuarios.json
+|-> libros.json
+|
+|--> Don_quijote_de_la_macha.txt
+|--> La_Odisea.txt
+|--> La_ilíada.txt
+|--> Alicia_en_el_Pais_de_las_Maravillas.txt
+|--> Dracula.txt
+|--> El_Arte_de_la_Guerra.txt
+|--> El_Conde_de_Montecristo.txt
+|--> Moby_Dick.txt
+|--> Frankenstein.txt
+|--> La_Divina_Comedia.txt
+|--> Fausto.txt
+|--> Hamlet.txt
+|--> Las_Mil_y_Una_Noches.txt
+|--> Los_Tres_Mosqueteros.txt
+|--> Orgullo_y_Prejuicio.txt
+|--> La_Metamorfosis.txt
+|--> La_isla_del_Tesoro.txt
+|--> El_Principito.txt
+|--> Romeo_y_Julieta.txt
+|--> Viaje_al_Centro_de_la_Tierra.txt
