@@ -113,6 +113,17 @@ def eliminar_libro(id_libro_elim):
     guardar_libros(libros)
 
 
+def validar_id_libro(id_libro):
+    libros = cargar_libros()
+    for libro in libros:
+        if int(libro["id"]) == int(id_libro):
+            return True
+
+    return False
+    
+
+
+
 ####################################################
 
 def eliminar_usuario(id_usuario_elim):
@@ -158,7 +169,7 @@ def agregar_usuario(nombre, contraseña, libros_tenidos=None):
     usuarios_a = cargar_usuarios()
 
     # calcular el nuevo id
-    nuevo_id = calcular_nuevo_id_usuarios(usuarios)
+    nuevo_id = calcular_nuevo_id_usuarios(usuarios_a)
 
     # crear objeto usuario
     usuario = class_usuarios.Usuario(nombre, contraseña, libros_tenidos)

@@ -1,7 +1,6 @@
 
 import class_biblioteca
 import class_usuarios
-import class_libros
 import time
 #import os
 # impo
@@ -127,7 +126,7 @@ def sub_menu_2_opcion_usuario(usuario_valido):
     print("------")
     print("ingrese el id del libro a pedir prestado: ")
     id_libro = int(input("> "))
-    if not class_libros.validar_id_libro(id_libro):
+    if not class_biblioteca.validar_id_libro(id_libro):
         log.add_to_log("warning", f"El usuario: [{usuario_valido['id']}]{usuario_valido['nombre']} intentó pedir prestado un libro que no existe.")
         print("Error: No existe un libro con esa ID.")
         time.sleep(1.5)
@@ -291,10 +290,17 @@ def sub_menu_3_opcion_bibliotecario():
     print("....................................")
     print("ingrese el id del libro a eliminar:")      
     print("_____")
-    id_libro_elim = int(input("> "))          
+    try:
+        id_libro_elim = int(input("> "))
+    except ValueError:
+        log.add_to_log("warning", "El bibliotecario ingresó un ID de libro no numérico para eliminar")
+        print("Error: La ID debe ser un número entero.")
+        time.sleep(1.5)
+        menu_bibliotecario()
+        return
     print("_____")
     time.sleep(1.5)
-    if not class_libros.validar_id_libro(id_libro_elim):
+    if not class_biblioteca.validar_id_libro(id_libro_elim):
         log.add_to_log("warning", "El bibliotecario intentó eliminar un libro que no existe.")
         print("Error: No existe un libro con esa ID.")
         time.sleep(1.5)
@@ -330,7 +336,14 @@ def sub_menu_5_opcion_bibliotecario():
     print("..................")
     print("ingrese el id del usuario a eliminar:")      
     print("_____")
-    id_usuario_elim = input("> ")          
+    try:
+        id_usuario_elim = int(input("> "))
+    except ValueError:
+        log.add_to_log("warning", "El bibliotecario ingresó un ID de usuario no numérico para eliminar")
+        print("Error: La ID debe ser un número entero.")
+        time.sleep(1.5)
+        menu_bibliotecario()
+        return       
     print("_____")
     if not class_usuarios.validar_id_usuario(id_usuario_elim):
         log.add_to_log("warning", "El bibliotecario intentó eliminar un usuario que no existe.")
@@ -345,7 +358,7 @@ def sub_menu_5_opcion_bibliotecario():
     print("-----------------------------------")  
     print("(1) volver al menu o igual")
     print("(2) ver lista actualizada")
-    opcion_u_leer = int(input("> "))
+    opcion_u_leer = input("> ")
     if opcion_u_leer == "1":
         menu_bibliotecario()
     elif opcion_u_leer == "2":
